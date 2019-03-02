@@ -1,3 +1,10 @@
+<?php
+    // $RootPath = $_SERVER["DOCUMENT_ROOT"];
+    include('./action.php');
+    echo 'chile';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +15,14 @@
 </head>
 
 <body>
-   <div class="main-conatainer">
-    <?php >
-   </div>
+<?php
+            $myrow = $obj->fetch_record("books");
+            foreach ($myrow as $row) {
+                echo $row["id"];
+            }
+        ?>
+
+
+
 </body>
 </html>
