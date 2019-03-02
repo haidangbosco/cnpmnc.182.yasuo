@@ -1,31 +1,35 @@
 
+<?php
+   
+    include('./action.php');
+
+
+?>
 <div class="p-3">
 <h3>
     List Books
 </h3>
-<?php 
-$book = array(1, 2);
- {
+<?php
+        $myrow = $obj->fetch_record("books");
+        foreach ($myrow as $row) {
 ?>
     <div class="row border mb-3">
-        <img class="image col-3" src="https://via.placeholder.com/150x150">
+        <img class="image col-3" src="<?php echo $row['image']; ?>">
         <div class="col-9">
-            <span class="h4">Name of The Book</span>
-            <span>Name of The Author</span>
-            <span class="bg-success">Available</span>
+            <span class="h4"><?php  echo $row["name"];?> </span>
+            <span><?php $author = $obj->select_record('users',array("id"=>$row['user_id'],)) ;  echo $author['fullname'];?></span>
+            <span class="bg-success"><?php $row['status']==1?'Avaiable':'Borrowed'?></span>
             <div class="row">
-                <p class="col-10"> Abstraction: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="col-10"> Abstraction: <?php echo $row['description']; ?></p>
                 <div class="col-2">
                     <button class="btn btn-default">Borrow</button>
                 </div>
             </div>
             <div class="row">
                 <span class="col-6">Name of Provider</span>
-                <span class="col-6">6.7/10</span>
+                <span class="col-6"><?php echo $row['rating'] ?>/10</span>
             </div>
         </div>
     </div>
-<?php
-}
-?>
-</div>
+
+<?php }?>
