@@ -1,8 +1,8 @@
 <!-- Footer -->
-<footer class="page-footer font-small teal pt-4 bg-primary">
+<footer class="page-footer font-small teal pt-4 ">
 
     <!-- Footer Text -->
-    <div class="container-fluid text-center text-md-left text-white">
+    <div class="container-fluid text-center text-md-left ">
 
       <!-- Grid row -->
       <div class="row">
@@ -36,7 +36,7 @@
     <!-- Footer Text -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3 text-white">© 2018 Copyright:
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="#">yourcompany.com</a>
     </div>
     <!-- Copyright -->
