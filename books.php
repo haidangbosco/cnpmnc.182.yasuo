@@ -1,8 +1,13 @@
+
+<div class="p-3">
+<h3>
+    List Books
+</h3>
 <?php 
 $book = array(1, 2);
  {
 ?>
-    <div class="row border">
+    <div class="row border mb-3">
         <img class="image col-3" src="https://via.placeholder.com/150x150">
         <div class="col-9">
             <span class="h4">Name of The Book</span>
@@ -23,3 +28,4 @@ $book = array(1, 2);
 <?php
 }
 ?>
+</div>
