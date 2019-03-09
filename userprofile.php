@@ -22,14 +22,23 @@
 <body>
     <div class="container border">
         <?php include 'header.php' ?>
+        <?php 
+            if (isset($_GET['id'])){
+                $author = $obj->select_record('users',array("id"=>  $_GET['id']));
+                $books = $obj->select_record2('books',array("user_id" => $_GET['id']) );
+            }else{
+                $author = $obj->select_record('users',array("id"=>  $_SESSION['user_data']['id'],));
+                $books = $obj->select_record2('books',array("user_id" => $_SESSION['user_data']['id'],) );
+            }
+        ?>
         <div class="container pt-1">
-        <? include 'user_info.php'?>
+        <?php include 'user_info.php'?>
         </div>
         <div class="container border-top">
         <?php include 'list_lend_book.php' ?>
-        <?php include 'list_borrow_book.php' ?>
+        
         </div>
         <?php include 'footer.php' ?>
-	</div>
+    </div>
 </body>
 </html>

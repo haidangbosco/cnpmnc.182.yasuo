@@ -22,49 +22,42 @@
 <body>
 	<div class="container border">
 	<?php include 'header.php' ?>
+	<?php 
+		if(empty(isset($_GET['id']))){
+			$id=$_SESSION['user_data']['id'];
+			$book = $obj->select_record('books',array("id"=>$id,));
+			$author = $obj->select_record('users',array("id"=>$book['user_id'],));
+		}else{
+			$id=$_GET['id'];
+			$book = $obj->select_record('books',array("id"=>$id,));
+			$author = $obj->select_record('users',array("id"=>$book['user_id'],));
+		}
+		//echo $book['name'];
+	?>
 	<div class="container p-1">
 		<div class="row container">
 			<div class="col-3">
-				<img src="https://via.placeholder.com/150x150" alt="No image found">
+				<img class="col-12" src="<?php echo $book['image'] ?>" alt="No image found">
 			</div>
 			<div class="row col-9">
 				<div class="col-6 container">
-					<span class="h1">Ten Sach</span>
-					<div>7/10</div>
-					<div class="h5">Tac gia</div>
+					<span class="h1"><?php echo $book['name']; ?></span>
+					<div><?php echo $book['rating']; ?>/10</div>
+					<div class="h5"><?php echo $book['author']; ?></div>
 				</div>
 				<div class="col-6 container">
-					<div>Category
-						<ul>
-							<li>Trinh tham</li>
-							<li>Tieu thuyet</li>
-						</ul></div>
-						<div>Nguoi Dang</div>
+					<div><b>Category:</b> <?php echo $book['type']; ?></div>
+						<div>Người đăng:<a href="./userprofile.php?id=<?php echo $author['id']?>"> <?php echo $author['fullname']; ?> </a></div>
 					</div>
 					<div class="row">
-						<button>Muon</button>
-						<button>Them vao gio</button>
+						<a href="./userprofile.php?id=<?php echo $author['id']?>"><button class="btn btn-success">Mượn</button></a>
 					</div>
 				</div>
 			</div>
 			<!-- Decription -->
 			<div class="container">
 				<div class="h2">Description</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-
-			<!-- Comments -->
-			<div id="comments" class="container">
-				<div class="h2">Comments</div>
-				<ul>
-					<li><b class="p-3">User 1</b>Comment 1</li>
-					<li><b class="p-3">User 2</b>Comment 2
-						<ul>
-							<li><b class="p-3">User 3</b>Reply 1</li>
-							<li><b class="p-3">User 4</b>Reply 2</li>
-						</ul>
-					</li>
-				</ul>
+				<p><?php echo $book['description']; ?></p>
 			</div>
 		</div>
 		<?php include 'footer.php' ?>

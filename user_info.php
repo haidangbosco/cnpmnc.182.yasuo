@@ -1,23 +1,21 @@
-
-
 	<!-- Start UserInfo -->
 	<div class="card pt-3	">
 		<div class="row">
 			<div id="avatar-container" class="container col-3">
-				<img class="img-thumbnail mx-auto d-block" src="https://via.placeholder.com/180x180">
+				<img class="img-thumbnail mx-auto d-block" src="http://i.imgur.com/HQ3YU7n.gif">
 			</div>
 			<div class="col-7 container border-left">
-				<div class="h1">Ten Nguoi Dung</div>
+				<div class="h1"><?php echo $author['fullname']; ?></div>
 				<dl class="row">
 					<dt class="col-3">Email</dt>
-					<dd class="col-9">sample@email.com</dd>
+					<dd class="col-9"><?php echo $author['email']; ?></dd>
 
 
 				<dt class="col-3">Phone</dt>
-				<dd class="col-9">+84123456789</dd>
+				<dd class="col-9">+<?php echo $author['phone']?></dd>
 
 				<dt class="col-3">Address</dt>
-				<dd class="col-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+				<dd class="col-9"><?php echo $author['address']?></dd>
 
 			</dl>
 		</div>
@@ -52,22 +50,39 @@
 					</div>
 					</div>
 					<div class="form-group">
-					<label class="control-label col-sm-2" for="pub">Publisher</label>
+					<label class="control-label col-sm-2" for="year">Year</label>
 					<div class="col-sm-10">          
-						<input type="text" class="form-control" id="pub" placeholder="Publisher" name="pub">
+						<input type="number" class="form-control" id="year" placeholder="Publish year" name="year">
 					</div>
 					</div>
 					<div class="form-group">
-					<label class="control-label col-sm-2" for="imgInp">Image</label>
-						<div class="input-group">
+					<label class="control-label col-sm-2" for="category">Category</label>
+					<div class="col-sm-10">          
+						<select class="form-control" id="category" name="category">
+				      <option value="Truyen Ngan">Truyen Ngan</option>
+				      <option value="Truyen Dai">Truyen Dai</option>
+				    </select>
+					</div>
+					</div>
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="pub">Publisher</label>
+					<div class="col-sm-10">          
+						<input type="text" class="form-control-plaintext" placeholder="Publisher" 
+						value=<?php echo '"'.$author['fullname'].'"';?> disabled="">
+					</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="imgInpT">Image URL</label>
+						<input type="text" class="form-control" id="imgInpT" placeholder="URL" name="imgInpT">
+						<div class="input-group" hidden>
 							<span class="input-group-btn">
 								<span class="btn btn-default btn-file">
-									<input type="file" id="imgInp">
+									<input type="file" id="imgInp" name="imgInp">
 								</span>
 							</span>
 							<!-- <input type="text" class="form-control" readonly> -->
 						</div>
-						<img id='img-upload' class="img-thumbnail col-6" />
+						<img id='img-upload' class="img-thumbnail col-6" hidden="" />
 					</div>
 
 					

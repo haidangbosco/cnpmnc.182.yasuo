@@ -29,11 +29,33 @@
             return $row;
             
         }
+        public function select_record2($table,$where){
+            $sql = "";
+            $condition = "";
+            foreach ($where as $key => $value) {
+            // id = '5' AND m_name = 'something'
+            $condition .= $key . "='" . $value . "' AND ";
+            }
+            $condition = substr($condition, 0, -5);
+            $sql .= "SELECT * FROM ".$table." WHERE ".$condition;
+            $query = mysqli_query($this->con,$sql);
+
+            // $row = mysqli_fetch_array($query);
+            // return $row;
+            $array = array();
+            while($row = mysqli_fetch_assoc($query)){
+                $array[] = $row;
+            }
+            return $array;
+            
+        }
+
 
         public function fetch_record($table){
             $sql = "SELECT * FROM ".$table;
             $array = array();
             $query = mysqli_query($this->con,$sql);
+
             while($row = mysqli_fetch_assoc($query)){
                 $array[] = $row;
             }
@@ -68,6 +90,24 @@
             if(mysqli_query($this->con,$sql)){
             return true;
             }
+        }
+        public function check_account($email,$password){
+            $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
+            $result=mysqli_query($this->con,$sql);
+            //echo $result;
+           // $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            if(mysqli_num_rows($result) == 1){
+               
+                $row = mysqli_fetch_array($result);
+                return $row;
+            }
+
+            return false;
+
+
+        }
+        public function lastInsert(){
+            return  $con->lastInsertId();
         }
 
     }
