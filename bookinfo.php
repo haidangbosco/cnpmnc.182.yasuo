@@ -1,11 +1,13 @@
 <?php 
 include('./action.php');
 if(empty(isset($_GET['id']))){
-	$id=$_GET['id'];
+	$id=$_SESSION['user_data']['id'];
 	$book = $obj->select_record('books',array("id"=>$id,));
 	$author = $obj->select_record('users',array("id"=>$book['id'],));
 }else{
-	
+	$id=$_GET['id'];
+	$book = $obj->select_record('books',array("id"=>$id,));
+	$author = $obj->select_record('users',array("id"=>$book['id'],));
 }
 
 //echo $book['name'];
