@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<div class="container border">
+	<div class="container border p-0">
         <?php include 'header.php' ?>
         <?php include 'books.php' ?>
         <?php include 'footer.php' ?>
