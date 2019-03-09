@@ -48,10 +48,10 @@
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
-                            <div><a href="#" class="signup-image-link">I am already have an account</a></div>
+                            <div><a href="signin.php" class="signup-image-link">I am already have an account</a></div>
 
                             <div align="center" class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" disabled onclick="validateForm();"/>
                             </div>
                         </form>
                     </div>
