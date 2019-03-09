@@ -8,8 +8,8 @@
         <img class="card-img-top" src="<?php echo $book['image']; ?>" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title"><?php echo $book['name'] ?></h5>
-            <p class="card-text">ngay dang: <?php echo $book['create_at'] ?> </p>
-            <a href="#" class="btn btn-primary">Xem thông tin</a>
+            <p class="card-text">Ngày đăng: <?php echo $book['create_at'] ?> </p>
+            <a href="./bookinfo.php?id=<?php echo $book['id'] ?>" class="btn btn-primary">Xem thông tin</a>
         </div>
     </div>
     <?php  } ?>

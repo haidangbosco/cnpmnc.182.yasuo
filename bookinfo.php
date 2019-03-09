@@ -1,3 +1,18 @@
+<?php 
+include('./action.php');
+if(empty(isset($_GET['id']))){
+	$id=$_GET['id'];
+	$book = $obj->select_record('books',array("id"=>$id,));
+	$author = $obj->select_record('users',array("id"=>$book['id'],));
+}else{
+	
+}
+
+//echo $book['name'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,25 +40,25 @@
 	<div class="container p-1">
 		<div class="row container">
 			<div class="col-3">
-				<img src="https://via.placeholder.com/150x150" alt="No image found">
+				<img src="<?php echo $book['image'] ?>" alt="No image found">
 			</div>
 			<div class="row col-9">
 				<div class="col-6 container">
-					<span class="h1">Ten Sach</span>
-					<div>7/10</div>
-					<div class="h5">Tac gia</div>
+					<span class="h1"><?php echo $book['name']; ?></span>
+					<div><?php echo $book['rating']; ?>/10</div>
+					<div class="h5"><?php echo $book['author']; ?></div>
 				</div>
 				<div class="col-6 container">
 					<div>Category
 						<ul>
-							<li>Trinh tham</li>
-							<li>Tieu thuyet</li>
+							<li>Trinh thám</li>
+							<li>Tiểu thuyết</li>
 						</ul></div>
-						<div>Nguoi Dang</div>
+						<div>Người đăng:<a href="./userprofile.php?id=<?php echo $author['id']?>"> <?php echo $author['fullname']; ?> </a></div>
 					</div>
 					<div class="row">
-						<button>Muon</button>
-						<button>Them vao gio</button>
+						<button>Mượn</button>
+						<button>Thêm vào giỏ</button>
 					</div>
 				</div>
 			</div>
