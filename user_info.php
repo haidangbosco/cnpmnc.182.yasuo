@@ -28,7 +28,7 @@
 
 	<!-- Upoad Book Modal -->
 	<div class="modal fade" id="upload_book_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<form action="submit_book.php" method="post">
+		<form action="submit_book.php" method="post" class="form-inline">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -67,7 +67,7 @@
 							</span>
 							<!-- <input type="text" class="form-control" readonly> -->
 						</div>
-						<img id='img-upload'/>
+						<img id='img-upload' class="img-thumbnail col-6" />
 					</div>
 
 					
