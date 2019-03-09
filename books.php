@@ -13,7 +13,7 @@
         $myrow = $obj->fetch_record("books");
         foreach ($myrow as $row) {
 ?>
-    <div class="row border mb-3">
+    <div class="row border mb-3 mx-2">
         <img class="image col-3" src="<?php echo $row['image']; ?>">
         <div class="col-9">
             <span class="h4"><?php  echo $row["name"];?> </span>
