@@ -18,7 +18,7 @@ function validateForm() {
     if (!usernameRegex.test($("#name").val())) {
         alert("worng username")
     }
-    if (!usernameRegex.test($("#email").val())) {
+    if (!emailRegex.test($("#email").val())) {
         alert("worng email")
     }
 }
