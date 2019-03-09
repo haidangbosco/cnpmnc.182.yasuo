@@ -1,6 +1,6 @@
 
 	<!-- Start UserInfo -->
-	<div class="card pt-3">
+	<div class="card pt-3	">
 		<div class="row">
 			<div id="avatar-container" class="container col-3">
 				<img class="img-thumbnail mx-auto d-block" src="https://via.placeholder.com/180x180">
