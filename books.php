@@ -16,7 +16,7 @@
     <div class="row border mb-3 mx-2">
         <img class="image col-3" src="<?php echo $row['image']; ?>">
         <div class="col-9">
-            <span class="h4"><?php  echo $row["name"];?> </span>
+            <span class="h4"><a href=""><?php  echo $row["name"];?> </a></span>
             <span><?php $author = $obj->select_record('users',array("id"=>$row['user_id'],)) ;  echo $author['fullname'];?></span>
             <span class="bg-success"><?php $row['status']==1?'Avaiable':'Borrowed'?></span>
             <div class="row">

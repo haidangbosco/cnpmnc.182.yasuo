@@ -47,3 +47,7 @@ INSERT INTO books (id,name,image,author,status,description,type,year,user_id)
 INSERT INTO books (id,name,image,author,status,description,type,year,user_id) 
         VALUES (NULL,'Mat Biec  ','https://upload.wikimedia.org/wikipedia/vi/thumb/9/92/Mat_Biec.gif/220px-Mat_Biec.gif',
         'Nguyen Nhat Anh',1,'Mot sieu pham cua tac gia NNA','Truyen Ngan','1997',1);
+
+INSERT INTO books (id,name,image,author,status,description,type,year,user_id) 
+        VALUES (NULL,'Toi thay hoa vang tren co xanh','https://cdnvn.truyenfull.vn/cover/o/eJzLyTDW1zVO8s1OMwjyyksu1w_LKDD1TvPNNqry1HeEAqeCZP2K0Arzwkhvy-CCfP1yI0NT3QxjIyNdz2QTIwDG2BQ7/toi-thay-hoa-vang-tren-co-xanh.jpg',
+        'Nguyen Nhat Anh',1,'Mot sieu pham cua tac gia NNA','Truyen Ngan','1997',16);      

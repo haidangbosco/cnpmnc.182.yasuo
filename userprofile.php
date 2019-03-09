@@ -1,3 +1,21 @@
+<?php 
+  session_start();
+  include('./action.php');
+  //unset($_SESSION['user_data']);
+   
+//  echo $_SESSION['user_data']['id'];
+$author = $obj->select_record('users',array("id"=>  $_SESSION['user_data']['id'],));
+    $books = $obj->select_record2('books',array("user_id" => $_SESSION['user_data']['id'],) );
+    //var_dump($books);
+
+   // var_dump($author);
+
+//         // $myrow = $obj->fetch_record("books");
+//         // foreach ($myrow as $row) {
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +41,11 @@
     <div class="container border">
         <?php include 'header.php' ?>
         <div class="container pt-1">
-        <? include 'user_info.php'?>
+        <?php include 'user_info.php'?>
         </div>
         <div class="container border-top">
         <?php include 'list_lend_book.php' ?>
-        <?php include 'list_borrow_book.php' ?>
+        
         </div>
         <?php include 'footer.php' ?>
 	</div>
