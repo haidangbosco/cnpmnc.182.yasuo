@@ -19,9 +19,11 @@
 
 			</dl>
 		</div>
+		<?php if ($_GET['id']==$_SESSION['user_data']['id']){?>
 		<div class="col-2 border-left">
 			<button class="btn" data-toggle="modal" data-target="#upload_book_form">Add Book</button>
 		</div>
+	<?php }?>
 	</div>
 
 	<!-- Upoad Book Modal -->

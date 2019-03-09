@@ -17,7 +17,7 @@
   <div style="padding-left: 60%">
   <?php
   if ($signed_in){
-    echo '<a href="userprofile.php" class="h5" style="color:white" >Hello, '.$author['fullname'].'</a>';
+    echo '<a href="userprofile.php?id='.$author['id'].'" class="h5" style="color:white" >Hello, '.$author['fullname'].'</a>';
     echo '<a href="signout.php" class="btn my-1 btn-outline-success">Log out</a>';
   }else{
     echo '<a href="signin.php" class="btn my-1 btn-outline-success">Log in</a>';
