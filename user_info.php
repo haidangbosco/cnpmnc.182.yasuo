@@ -19,7 +19,30 @@
 			</dl>
 		</div>
 		<div class="col-2 border-left">
-			<button class="btn">Add Book</button>
+			<button class="btn" data-toggle="modal" data-target="#upload_book_form">Add Book</button>
 		</div>
+	</div>
+
+	<!-- Upoad Book Modal -->
+	<div class="modal fade" id="upload_book_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form action="submit_book.php" method="post">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Upload Book</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+
+		      </div>
+		      <div class="modal-footer">
+		        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel">
+		        <input name="submit" type="submit" class="btn btn-primary" value="Upload">
+		      </div>
+		    </div>
+		  </div>
+	  </form>
 	</div>
 <!-- End UserInfo -->
