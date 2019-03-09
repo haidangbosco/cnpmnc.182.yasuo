@@ -22,6 +22,7 @@
 <body>
     <div class="container border">
         <?php include 'header.php' ?>
+        <? include 'user_info.php'?>
         <?php include 'list_lend_book.php' ?>
         <?php include 'footer.php' ?>
 	</div>
