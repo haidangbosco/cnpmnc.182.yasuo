@@ -1,3 +1,60 @@
+<?php 
+
+include('./action.php');
+
+    $email= $password = "";
+    $emailErr = $passwordErr = $err= "";
+    if(isset($_POST["signin"])){
+        
+        //var_dump($_POST);
+        if(empty($_POST['email'])){
+          $emailErr = "Email is required";
+        }else{
+          if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format"; 
+          }else{
+            $email = $_POST['email'];            
+          }
+        }
+        
+        if(empty($_POST['password'])){
+          $passwordErr= 'Password is required';
+        }else{
+          $password = md5($_POST['password']);
+        }
+        
+        if (empty($emailErr) && empty($passwordErr) ){
+           // die('chile');
+          // session_start();
+          // header("location:./");  
+          // exit();
+          $kq = $obj->check_account($email,$password);
+          if( $kq != false){
+             
+            session_start();
+            $_SESSION['user_data']['id']=$kq['id'];
+            $_SESSION['user_data']['fullname']=$kq['fullname'];
+            
+           
+            header("location:./");
+          }else{
+            $err = "Email or Password invalid";
+          }
+        }else{
+           
+            
+            echo $emailErr;
+            echo $passwordErr; 
+            echo $err; 
+        }
+        
+        
+    } 
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +78,7 @@
                 <div class="signin-content">
                     <div class="signup-image">
                         <figure><img src="images/signin-image.jpg" alt="sing in image"></figure>
-                        <a href="#" class="signup-image-link">Create an account</a>
+                        <a href="signup.php" class="signup-image-link">Create an account</a>
                     </div>
 
                     <div class="signin-form">
@@ -29,11 +86,11 @@
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                <input type="text" name="email" id="email" placeholder="Email"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="password" id="password" placeholder="Password"/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
