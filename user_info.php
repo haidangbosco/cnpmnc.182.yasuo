@@ -1,4 +1,5 @@
 
+
 	<!-- Start UserInfo -->
 	<div class="card pt-3	">
 		<div class="row">
@@ -11,17 +12,109 @@
 					<dt class="col-3">Email</dt>
 					<dd class="col-9">sample@email.com</dd>
 
-					<dt class="col-3">Phone</dt>
-					<dd class="col-9">+84123456789</dd>
 
-					<dt class="col-3">Address</dt>
-					<dd class="col-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+				<dt class="col-3">Phone</dt>
+				<dd class="col-9">+84123456789</dd>
 
-				</dl>
-			</div>
-			<div class="col-2 border-left">
-				<button class="btn">Add Book</button>
-			</div>
+				<dt class="col-3">Address</dt>
+				<dd class="col-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+
+			</dl>
+		</div>
+		<div class="col-2 border-left">
+			<button class="btn" data-toggle="modal" data-target="#upload_book_form">Add Book</button>
 		</div>
 	</div>
-	<!-- End UserInfo -->
+
+	<!-- Upoad Book Modal -->
+	<div class="modal fade" id="upload_book_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form action="submit_book.php" method="post">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Upload Book</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="book_name">Tên sách</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="book_name" placeholder="Name of the book" name="book_name">
+					</div>
+					</div>
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="author">Author</label>
+					<div class="col-sm-10">          
+						<input type="text" class="form-control" id="author" placeholder="Author name" name="author">
+					</div>
+					</div>
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="pub">Publisher</label>
+					<div class="col-sm-10">          
+						<input type="text" class="form-control" id="pub" placeholder="Publisher" name="pub">
+					</div>
+					</div>
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="imgInp">Image</label>
+						<div class="input-group">
+							<span class="input-group-btn">
+								<span class="btn btn-default btn-file">
+									<input type="file" id="imgInp">
+								</span>
+							</span>
+							<!-- <input type="text" class="form-control" readonly> -->
+						</div>
+						<img id='img-upload'/>
+					</div>
+
+					
+		      </div>
+		      <div class="modal-footer">
+		        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel">
+		        <input name="submit" type="submit" class="btn btn-primary" value="Upload">
+		      </div>
+		    </div>
+		  </div>
+	  </form>
+	</div>
+<!-- End UserInfo -->
+<script>
+    $(document).ready( function() {
+    	// $(document).on('change', '.btn-file :file', function() {
+		// var input = $(this),
+		// 	label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		// input.trigger('fileselect', [label]);
+		// });
+
+		// $('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		//     var input = $(this).parents('.input-group').find(':text'),
+		//         log = label;
+		    
+		//     if( input.length ) {
+		//         input.val(log);
+		//     } else {
+		//         if( log ) alert(log);
+		//     }
+	    
+		// });
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+</script>

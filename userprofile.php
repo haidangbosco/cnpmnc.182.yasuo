@@ -22,8 +22,13 @@
 <body>
     <div class="container border">
         <?php include 'header.php' ?>
+        <div class="container pt-1">
         <? include 'user_info.php'?>
+        </div>
+        <div class="container border-top">
         <?php include 'list_lend_book.php' ?>
+        <?php include 'list_borrow_book.php' ?>
+        </div>
         <?php include 'footer.php' ?>
 	</div>
 </body>
